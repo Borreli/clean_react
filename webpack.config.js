@@ -26,7 +26,7 @@ module.exports = {
         loader: 'style-loader'
       }, {
         loader: 'css-loader',
-        optons: {
+        options: {
           modules: true
         }
       }, {
