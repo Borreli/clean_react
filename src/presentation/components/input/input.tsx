@@ -10,7 +10,7 @@ const Input: React.FC<Props> = (props: Props) => {
   return (
     <div className={Styles.inputWrap}>
       <input {...props} readOnly onFocus={enableInput}/>
-      <i className={`em em-red_circle ${Styles.status}`} aria-role="presentation" aria-label="LARGE RED CIRCLE"></i>
+      <i className={`em em-red_circle ${Styles.status}`} role="presentation" aria-label="LARGE RED CIRCLE"></i>
     </div>
   )
 }
