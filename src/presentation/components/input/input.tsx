@@ -17,14 +17,10 @@ const Input: React.FC<Props> = (props: Props) => {
     })
   }
   const getTitle = (): string => {
-    return error
+    return error || 'Tudo certo!'
   }
   const getStatus = (): string => {
-    if (getTitle()) {
-      return Styles.statusRefused
-    } else {
-      return Styles.statusApproved
-    }
+    return error ? Styles.statusRefused : Styles.statusApproved
   }
   return (
     <div className={Styles.inputWrap}>
