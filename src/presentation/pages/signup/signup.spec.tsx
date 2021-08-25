@@ -1,7 +1,7 @@
 import React from 'react'
 import faker from 'faker'
 import SignUp from '@/presentation/pages/signup/signup'
-import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react'
+import { cleanup, render, RenderResult } from '@testing-library/react'
 import { FormHelper, ValidationStub } from '@/presentation/test'
 
 type SutTypes = {
@@ -23,15 +23,6 @@ const makeSut = (params?: SutParams): SutTypes => {
   return {
     sut
   }
-}
-
-const populateField = (
-  sut: RenderResult,
-  fieldName: string,
-  value = faker.random.word()
-): void => {
-  const input = sut.getByTestId(fieldName)
-  fireEvent.input(input, { target: { value } })
 }
 
 describe('Signup Component', () => {
@@ -56,7 +47,7 @@ describe('Signup Component', () => {
   test('Should show name error if Validation fails', () => {
     const validationError = faker.random.words()
     const { sut } = makeSut({ validationError })
-    populateField(sut, 'name')
+    FormHelper.populateField(sut, 'name')
     FormHelper.testStatusForField(sut, 'name', validationError)
   })
 })
