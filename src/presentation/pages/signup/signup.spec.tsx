@@ -71,4 +71,28 @@ describe('Signup Component', () => {
     FormHelper.populateField(sut, 'passwordConfirmation')
     FormHelper.testStatusForField(sut, 'passwordConfirmation', validationError)
   })
+
+  test('Should show valid name if Validation succeeds', () => {
+    const { sut } = makeSut()
+    FormHelper.populateField(sut, 'name')
+    FormHelper.testStatusForField(sut, 'name')
+  })
+
+  test('Should show valid email if Validation succeeds', () => {
+    const { sut } = makeSut()
+    FormHelper.populateField(sut, 'email')
+    FormHelper.testStatusForField(sut, 'email')
+  })
+
+  test('Should show valid password if Validation succeeds', () => {
+    const { sut } = makeSut()
+    FormHelper.populateField(sut, 'password')
+    FormHelper.testStatusForField(sut, 'password')
+  })
+
+  test('Should show valid passwordConfirmation if Validation succeeds', () => {
+    const { sut } = makeSut()
+    FormHelper.populateField(sut, 'passwordConfirmation')
+    FormHelper.testStatusForField(sut, 'passwordConfirmation')
+  })
 })
