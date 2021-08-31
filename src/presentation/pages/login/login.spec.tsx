@@ -39,23 +39,6 @@ const makeSut = (params?: SutParams): SutTypes => {
   }
 }
 
-const testElementExists = (
-  sut: RenderResult,
-  fieldName: string
-): void => {
-  const element = sut.getByTestId(fieldName)
-  expect(element).toBeTruthy()
-}
-
-const testElementTextContent = (
-  sut: RenderResult,
-  fieldName: string,
-  text: string
-): void => {
-  const mainError = sut.getByTestId(fieldName)
-  expect(mainError.textContent).toBe(text)
-}
-
 const simulateValidSubmit = async (
   sut: RenderResult,
   email = faker.internet.email(),
@@ -121,7 +104,7 @@ describe('Login Component', () => {
   test('Should show spinner on submit', async () => {
     const { sut } = makeSut()
     await simulateValidSubmit(sut)
-    testElementExists(sut, 'spinner')
+    FormHelper.testElementExists(sut, 'spinner')
   })
 
   test('Should call Authentication with correct values', async () => {
@@ -151,7 +134,7 @@ describe('Login Component', () => {
     const error = new InvalidCredentialsError()
     jest.spyOn(authenticationSpy, 'auth').mockRejectedValueOnce(error)
     await simulateValidSubmit(sut)
-    testElementTextContent(sut, 'main-error', error.message)
+    FormHelper.testElementTextContent(sut, 'main-error', error.message)
     FormHelper.testChildCount(sut, 'error-wrap', 1)
   })
 
@@ -168,7 +151,7 @@ describe('Login Component', () => {
     const error = new InvalidCredentialsError()
     jest.spyOn(saveAccessTokenMock, 'save').mockReturnValueOnce(Promise.reject(error))
     await simulateValidSubmit(sut)
-    testElementTextContent(sut, 'main-error', error.message)
+    FormHelper.testElementTextContent(sut, 'main-error', error.message)
     FormHelper.testChildCount(sut, 'error-wrap', 1)
   })
 
