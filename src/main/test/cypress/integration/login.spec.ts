@@ -1,6 +1,6 @@
 import faker from 'faker'
 import * as FormHelper from '../support/form-helper'
-import * as Mock from './login-mocks'
+import * as Mock from '../support/login-mocks'
 
 const simulateValidSubmit = (): void => {
   cy.getByTestId('email').focus().type(faker.internet.email())
