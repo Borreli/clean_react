@@ -1,6 +1,6 @@
 @import "../../styles/colors.scss";
 
-.headerWrap{
+.headerWrap {
   display: flex;
   background-color: $primary;
   border-top: 40px solid $primaryDark;
@@ -41,4 +41,11 @@
       }
     }
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .headerWrap {
+    border-top-width: 20px;
+
+  }  
 }
