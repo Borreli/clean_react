@@ -90,6 +90,7 @@ describe('Login', () => {
     Mock.loginMockOk()
     populateFields()
     cy.getByTestId('submit').dblclick()
+    cy.wait('@request')
     FormHelper.testHttpCallsCount(1)
   })
 
