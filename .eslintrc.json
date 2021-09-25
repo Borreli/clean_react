@@ -26,6 +26,8 @@
     "no-unused-vars": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "@typescript-eslint/no-floating-promises": "off"
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "import/export": "off"
   }
 }
