@@ -1,6 +1,7 @@
 const { DefinePlugin } = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const commom = require('./webpack.commom')
 const merge = require('webpack-merge')
 const { default: axios } = require('axios')
@@ -40,7 +41,10 @@ module.exports = merge(commom, {
       template: './template.prod.html'
     }),
     new MiniCssExtractPlugin({
-      filename: 'main-bundle-[hash].css'
+      filename: 'main-bundle-[fullhash].css'
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './public/favicon.png'
     })
   ]
 })
