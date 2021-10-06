@@ -32,34 +32,10 @@
       right: -10px;
     }
 
-    time {
-      display: flex;
-      flex-direction: column;
-      background-color: $primaryLight;
-      color: $white;
+    .calendarWrap {
       border-radius: 0px 0px 8px 8px ;
-      margin-left: 24px;
+      margin-left: 16px;
       align-self: top;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 100px;
-      flex-shrink: 0;
-
-      .day {
-        font-size: 36px;
-        font-weight: bold;
-      }
-      .month {
-        text-transform: lowercase;
-        margin: 0px 0px 4px;
-
-      }
-      .year {
-        font-size: 16px;
-
-      }
-
     }
 
     p {
