@@ -16,10 +16,23 @@
     flex-grow: 1;
     padding: 40px;
 
-    h2 {
-      color: $primaryDark;
-      font-size: 20px;
-      font-weight: bold;
+    hgroup {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .calendarWrap {
+        width: 80px;
+      }
+
+      h2 {
+        color: $primaryDark;
+        font-size: 24px;
+        font-weight: bold;
+        flex-grow: 1;
+        text-align: center;
+      }
     }
 
     .answersList {
