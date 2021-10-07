@@ -1,11 +1,12 @@
 @import "../../styles/colors.scss";
+@import "../../styles/animations.scss";
 
 .surveyResultWrap {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  background-color: $disabledBackground;
+  background-color: $background;
 
   .contentWrap {
     display: flex;
@@ -15,6 +16,48 @@
     width: 100%;
     flex-grow: 1;
     padding: 40px;
+
+    &:empty {
+      position: relative;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-image:
+        linear-gradient(to right, $disabledBackground, $disabledBackground), // Callendar
+        linear-gradient(to right, $disabledBackground, $disabledBackground), // h2
+        linear-gradient(to right, $disabledBackground, $disabledBackground), // h2
+        linear-gradient(to right, $disabledBackground, $disabledBackground), // h2
+        linear-gradient(to right, $disabledBackground, $disabledBackground), // answer
+        linear-gradient(to right, $disabledBackground, $disabledBackground), // answer
+        linear-gradient(to right, $disabledBackground, $disabledBackground); // answer
+      background-position:
+        40px 40px, // Calendar
+        136px 49px, // h2
+        136px 79px, // h2
+        136px 109px, // h2
+        40px 172px, // answer
+        40px 272px, // answer
+        40px 372px; // answer
+      background-size:
+        80px 100px, // Calendar
+        calc(70% - 176px) 20px, // h2
+        calc(100% - 176px) 20px, // h2
+        calc(80% - 176px) 20px, // h2
+        calc(100% - 80px) 82px, // answer
+        calc(100% - 80px) 82px, // answer
+        calc(100% - 80px) 82px; // answer
+    
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -1;
+        transform: translateX(-100%);
+        background-image: linear-gradient(to right, transparent, rgba($white, 0.3), transparent);
+        animation: shimmer 1.2s infinite;
+      }
+    }
 
     hgroup {
       display: flex;
@@ -76,6 +119,58 @@
 
     button {
       margin-top: 24px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .surveyResultWrap {
+    .contentWrap {
+      &:empty {
+        background-position:
+          40px 40px, // Calendar
+          116px 49px, // h2
+          116px 79px, // h2
+          116px 109px, // h2
+          40px 172px, // answer
+          40px 262px, // answer
+          40px 352px; // answer
+        background-size:
+          60px 100px, // Calendar
+          calc(70% - 156px) 20px, // h2
+          calc(100% - 156px) 20px, // h2
+          calc(80% - 156px) 20px, // h2
+          calc(100% - 80px) 72px, // answer
+          calc(100% - 80px) 72px, // answer
+          calc(100% - 80px) 72px; // answer
+      }
+  
+      hgroup {
+        .calendarWrap {
+          width: 60px;
+        }
+  
+        h2 {
+          font-size: 20px;
+        }
+      }
+  
+      .answersList {
+        li {
+          img {
+            width: 40px;
+            height: 40px;
+          }
+  
+          .answer {
+            font-size: 16px;
+          }
+  
+          .percent {
+            font-size: 20px;
+          }
+        }
+      }
     }
   }
 }
