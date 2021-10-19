@@ -32,7 +32,7 @@ const SurveyResult: React.FC<Props> = ({ loadSurveyResult }: Props) => {
     <div className={Styles.surveyResultWrap}>
       <Header />
       <div data-testid="survey-result" className={Styles.contentWrap}>
-        { state.surveyResult && <SurveyResultData surveyResult={state.surveyResult} />}
+        {state.surveyResult && <SurveyResultData surveyResult={state.surveyResult} />}
         {state.isLoading && <Loading />}
         {state.error && <Error error={state.error} reload={reload} />}
       </div>
