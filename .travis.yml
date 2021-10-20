@@ -17,5 +17,3 @@ deploy:
   api_key: $HEROKU_API
   app: clean-react-study
   skip_cleanup: true
-  - stage: test
-    script: 'curl http://sf-stages-production.herokuapp.com'
