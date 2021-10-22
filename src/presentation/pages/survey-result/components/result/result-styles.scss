@@ -25,8 +25,24 @@ hgroup {
   flex-direction: column;
 }
 
-.button {
-  margin-top: 24px;
+.footerBack {
+  background-color: $primary;
+  cursor: pointer;
+  border-radius: 8px;
+
+  a {
+    color: $white;
+    line-height: 40px;
+    text-transform: lowercase;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  &:hover {
+    background-color: $primaryDark;
+  }
 }
 
 @media only screen and (max-width: 600px) {
