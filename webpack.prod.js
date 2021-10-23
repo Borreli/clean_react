@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const commom = require('./webpack.commom')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const { default: axios } = require('axios')
 
 module.exports = merge(commom, {

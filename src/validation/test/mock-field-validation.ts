@@ -5,7 +5,6 @@ export class FieldValidationSpy implements FieldValidation {
 
   constructor (readonly field: string) {}
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars-experimental
   validate (input: object): Error {
     return this.error
   }
