@@ -1,8 +1,9 @@
 import { LoadSurveyList } from '@/domain/usecases'
 import { Footer, Header, Error } from '@/presentation/components'
 import { useErrorHandler } from '@/presentation/hooks'
-import { SurveyListItem } from '@/presentation/pages/survey-list/components'
-import React, { useEffect, useState } from 'react'
+import { SurveyListItem, surveyListState } from '@/presentation/pages/survey-list/components'
+import { useRecoilState } from 'recoil'
+import React, { useEffect } from 'react'
 import Styles from './survey-list-styles.scss'
 
 type Props = {
@@ -13,11 +14,7 @@ const SurveyList: React.FC<Props> = ({ loadSurveyList }: Props) => {
   const handleError = useErrorHandler((error: Error) => {
     setState(old => ({ ...old, error: error.message }))
   })
-  const [state, setState] = useState({
-    surveys: [] as LoadSurveyList.Model[],
-    error: '',
-    reload: false
-  })
+  const [state, setState] = useRecoilState(surveyListState)
 
   useEffect(() => {
     loadSurveyList.loadAll()
